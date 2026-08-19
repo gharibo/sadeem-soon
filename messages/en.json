@@ -1,31 +1,23 @@
 {
   "meta": {
-    "title": "Sadeem — Coming soon",
-    "description": "A new Sadeem project is launching soon. Leave your email and we'll tell you the moment it opens.",
+    "title": "Sadeem — Multidisciplinary marketing agency in Riyadh",
+    "description": "Sadeem is a multidisciplinary marketing agency based in Riyadh. Our new site is coming soon — reach us by email, phone, or WhatsApp.",
     "ogAlt": "Sadeem — Coming soon"
   },
   "hero": {
-    "eyebrow": "A new project from Sadeem",
-    "titleLead": "We're building something",
+    "eyebrow": "Multidisciplinary marketing agency — Riyadh",
+    "titleLead": "We build brand presence",
     "titleAccent": "worth the wait",
-    "lede": "A new Sadeem project is in the works. Leave your email and we'll reach out the moment it opens."
-  },
-  "notify": {
-    "label": "Your email address",
-    "placeholder": "name@example.com",
-    "submit": "Notify me",
-    "submitting": "Sending…",
-    "empty": "Enter your email first.",
-    "invalid": "Check the email format.",
-    "success": "Done. We'll email you at this address when we launch.",
-    "duplicate": "This address is already on the list.",
-    "error": "Couldn't send that just now. Try again, or email us directly."
+    "lede": "Sadeem is a multidisciplinary marketing agency based in Riyadh, working across strategy, brand identity, content, and digital advertising under one roof. Our new site is launching soon — until then, we're a message away."
   },
   "contact": {
     "heading": "Reach us directly",
     "email": "hello@bysadeem.sa",
     "phone": "+966 53 004 9008",
-    "whatsapp": "WhatsApp"
+    "emailLabel": "Email us",
+    "phoneLabel": "Call us",
+    "whatsappLabel": "WhatsApp",
+    "location": "Riyadh, Saudi Arabia"
   },
   "language": {
     "label": "Language",

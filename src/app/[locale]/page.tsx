@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import LanguageToggle from '@/components/LanguageToggle';
-import NotifyForm from '@/components/NotifyForm';
+import ContactActions from '@/components/ContactActions';
 
 export default async function ComingSoonPage({
   params,
@@ -52,32 +52,18 @@ export default async function ComingSoonPage({
           {t('lede')}
         </p>
 
-        <NotifyForm />
+        <h2 className="m-0 font-utility text-[0.72rem] tracking-[0.18em] text-ink-soft">
+          {c('heading')}
+        </h2>
+
+        <ContactActions />
       </main>
 
-      <footer className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 border-t border-hairline pt-6">
-        <h2 className="sr-only">{c('heading')}</h2>
-        <a
-          href={`mailto:${c('email')}`}
-          className="font-utility text-[0.78rem] text-ink-soft transition-colors hover:text-brand-deep"
-        >
-          {c('email')}
-        </a>
-        <a
-          href="tel:+966530049008"
-          dir="ltr"
-          className="font-utility text-[0.78rem] text-ink-soft transition-colors hover:text-brand-deep"
-        >
-          {c('phone')}
-        </a>
-        <a
-          href="https://wa.me/966530049008"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-[0.85rem] text-ink-soft transition-colors hover:text-brand-deep"
-        >
-          {c('whatsapp')}
-        </a>
+      <footer className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 border-t border-hairline pt-6">
+        <p className="m-0 text-[0.78rem] text-ink-soft">{c('location')}</p>
+        <p className="m-0 font-utility text-[0.72rem] text-ink-soft">
+          © {new Date().getFullYear()} Sadeem
+        </p>
       </footer>
     </div>
   );
