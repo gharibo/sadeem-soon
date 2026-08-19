@@ -40,7 +40,7 @@ export default async function ComingSoonPage({
             السقف 2.7rem محسوب على أعرض الصيغتين (الإنجليزية) داخل الحاوية. */}
         <h1 className="m-0 whitespace-nowrap text-[clamp(0.95rem,4.5vw,2.7rem)] font-light leading-[1.35] tracking-[-0.01em]">
           {t('titleLead')}{' '}
-          <span className="accent-underline text-brand-deep">
+          <span className="accent-underline text-brand">
             {t('titleAccent')}
           </span>
         </h1>
