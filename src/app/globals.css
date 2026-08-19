@@ -20,8 +20,10 @@
   --color-ink-soft: #5C6470;
   --color-hairline: rgba(17, 24, 39, 0.14);
 
-  --font-display: "IBM Plex Sans Arabic", ui-sans-serif, system-ui, sans-serif;
-  --font-utility: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+  /* خط واحد للصفحة كلها — HT Heliopolis، محمّل محليًا من src/fonts.
+     المتغيّر يأتي من next/font ويُثبَّت على <html>.
+     الأوزان المتاحة 300 / 400 / 500 فقط. */
+  --font-display: var(--font-heliopolis), ui-sans-serif, system-ui, sans-serif;
 }
 
 html {
@@ -87,18 +89,13 @@ body::before {
   border-radius: 999px;
 }
 
-/* الحروف اللاتينية وحدها تحتمل التتبّع الواسع والحروف الكبيرة.
-   تطبيقهما على العربية يفصل وصلات الحروف فتتفكّك الكلمة. */
-.latin-caps {
-  font-family: var(--font-display);
-  font-weight: 400;
+/* الخط موحّد، فما تبقّى هو التتبّع فقط: اللاتينية وحدها تحتمل التوسيع،
+   وتطبيقه على العربية يفصل وصلات الحروف فتتفكّك الكلمة. */
+.tracked {
   letter-spacing: normal;
-  text-transform: none;
 }
-[dir="ltr"] .latin-caps {
-  font-family: var(--font-utility);
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
+[dir="ltr"] .tracked {
+  letter-spacing: 0.14em;
 }
 
 :focus-visible {

@@ -1,9 +1,27 @@
 import type { Metadata } from 'next';
+import localFont from 'next/font/local';
 import { notFound } from 'next/navigation';
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { routing, dirOf } from '@/i18n/routing';
 import '../globals.css';
+
+/**
+ * خط سديم الوحيد في الصفحة — عربي ولاتيني ورقمي في ملف واحد لكل وزن،
+ * فلا حاجة لخط ثانٍ ولا لاستدعاء خارجي من Google Fonts.
+ * الأوزان المتاحة: 300 / 400 / 500 فقط — لا تستخدم غيرها في الكلاسات.
+ */
+const heliopolis = localFont({
+  src: [
+    { path: '../../fonts/Heliopolis-Light.woff2', weight: '300', style: 'normal' },
+    { path: '../../fonts/Heliopolis-Regular.woff2', weight: '400', style: 'normal' },
+    { path: '../../fonts/Heliopolis-Medium.woff2', weight: '500', style: 'normal' },
+  ],
+  variable: '--font-heliopolis',
+  display: 'swap',
+  preload: true,
+  fallback: ['ui-sans-serif', 'system-ui', 'sans-serif'],
+});
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -55,19 +73,12 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
 
   return (
-    <html lang={locale} dir={dirOf(locale)} suppressHydrationWarning>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@200;300;400;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
-          rel="stylesheet"
-        />
-      </head>
+    <html
+      lang={locale}
+      dir={dirOf(locale)}
+      className={heliopolis.variable}
+      suppressHydrationWarning
+    >
       <body className="min-h-[100svh] overflow-x-hidden antialiased">
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>

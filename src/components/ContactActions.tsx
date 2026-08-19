@@ -50,7 +50,7 @@ export default async function ContactActions() {
               </span>
               <span
                 dir="ltr"
-                className="font-utility text-[0.72rem] text-ink-soft"
+                className="text-[0.72rem] text-ink-soft"
               >
                 {item.value}
               </span>

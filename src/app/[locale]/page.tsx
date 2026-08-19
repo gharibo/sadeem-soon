@@ -35,24 +35,21 @@ export default async function ComingSoonPage({
           aria-label="سديم"
         />
 
-        <p className="m-0 text-sm font-normal text-brand-deep sm:text-base">
-          {t('eyebrow')}
-        </p>
-
-        {/* text-wrap: balance يوزّع الكلمات بالتساوي بدل ترك كلمة وحيدة
-            متدلّية في السطر الأخير */}
-        <h1 className="m-0 max-w-[18ch] text-balance text-[clamp(2rem,6.2vw,3.9rem)] font-extralight leading-[1.28] tracking-[-0.015em]">
+        {/* سطر واحد مهما ضاقت الشاشة: whitespace-nowrap يمنع الالتفاف،
+            وحجم الخط مربوط بعرض النافذة (vw) فيتقلّص بدل أن ينكسر.
+            السقف 2.7rem محسوب على أعرض الصيغتين (الإنجليزية) داخل الحاوية. */}
+        <h1 className="m-0 whitespace-nowrap text-[clamp(0.95rem,4.5vw,2.7rem)] font-light leading-[1.35] tracking-[-0.01em]">
           {t('titleLead')}{' '}
           <span className="accent-underline text-brand-deep">
             {t('titleAccent')}
           </span>
         </h1>
 
-        <p className="m-0 max-w-[46ch] text-balance text-[clamp(0.98rem,2.1vw,1.15rem)] leading-[1.75] text-ink-soft">
+        <p className="m-0 w-full max-w-3xl text-pretty text-[clamp(0.98rem,2.1vw,1.15rem)] leading-[1.75] text-ink-soft">
           {t('lede')}
         </p>
 
-        <h2 className="m-0 font-utility text-[0.72rem] tracking-[0.18em] text-ink-soft">
+        <h2 className="tracked m-0 mt-2 text-[0.78rem] text-ink-soft">
           {c('heading')}
         </h2>
 
@@ -61,7 +58,7 @@ export default async function ComingSoonPage({
 
       <footer className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 border-t border-hairline pt-6">
         <p className="m-0 text-[0.78rem] text-ink-soft">{c('location')}</p>
-        <p className="m-0 font-utility text-[0.72rem] text-ink-soft">
+        <p className="m-0 text-[0.72rem] text-ink-soft">
           © {new Date().getFullYear()} Sadeem
         </p>
       </footer>

@@ -28,9 +28,11 @@ src/
     navigation.ts         Link / useRouter الواعية باللغة
   app/
     layout.tsx            الجذر — لا يعرف اللغة فيتركها للطبقة التالية
-    [locale]/layout.tsx   <html lang dir> + الميتاداتا + الخطوط
+    [locale]/layout.tsx   <html lang dir> + الميتاداتا + تحميل الخط
     [locale]/page.tsx     الصفحة
     globals.css           توكنز الهوية + الفتحة المتحركة
+  fonts/
+    Heliopolis-*.woff2    خط الهوية — ثلاثة أوزان
   components/
     LanguageToggle.tsx    تبديل اللغة عبر المسار (تغيير URL حقيقي)
     ContactActions.tsx    بطاقات التواصل الثلاث
@@ -71,11 +73,15 @@ public/
 بحقل لوني متحرك والعصا تبقى فراغًا يظهر منه لون الصفحة. نقاط `clip-path` في
 `globals.css` مأخوذة من `public/logo-icon.svg` بلا تعديل هندسي.
 
-### الخطوط
+### الخط
 
-`IBM Plex Sans Arabic` + `IBM Plex Mono` من Google Fonts. لاستخدام خط سديم
-الأصلي، ضع الملفات في `public/fonts` واستبدل رابط الخطوط في
-`app/[locale]/layout.tsx` بـ`next/font/local`.
+خط واحد للصفحة كلها: **HT Heliopolis** بأوزانه الثلاثة (300 / 400 / 500)،
+ملفاته في `src/fonts` ويُحمَّل عبر `next/font/local` في
+`app/[locale]/layout.tsx` — بلا أي استدعاء خارجي، فلا طلب شبكة إلى Google
+ولا وميض خط. الخط يغطّي العربية واللاتينية والأرقام معًا.
+
+لا تستخدم وزنًا خارج الثلاثة (مثل `font-extralight` أو `font-bold`) وإلا
+اصطنعه المتصفّح وبان مشوّهًا.
 
 ## ملاحظات
 

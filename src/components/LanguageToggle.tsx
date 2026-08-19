@@ -30,7 +30,7 @@ export default function LanguageToggle() {
               startTransition(() => router.replace(pathname, { locale }))
             }
             className={[
-              'rounded-full px-3 py-1.5 font-utility text-xs tracking-widest',
+              'rounded-full px-3 py-1.5 text-xs tracking-widest',
               'transition-colors disabled:opacity-60',
               isActive
                 ? 'bg-ink text-cream'
