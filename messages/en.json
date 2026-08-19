@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "title": "Sadeem — Coming soon",
+    "description": "A new Sadeem project is launching soon. Leave your email and we'll tell you the moment it opens.",
+    "ogAlt": "Sadeem — Coming soon"
+  },
+  "hero": {
+    "eyebrow": "A new project from Sadeem",
+    "titleLead": "We're building something",
+    "titleAccent": "worth the wait",
+    "lede": "A new Sadeem project is in the works. Leave your email and we'll reach out the moment it opens."
+  },
+  "notify": {
+    "label": "Your email address",
+    "placeholder": "name@example.com",
+    "submit": "Notify me",
+    "submitting": "Sending…",
+    "empty": "Enter your email first.",
+    "invalid": "Check the email format.",
+    "success": "Done. We'll email you at this address when we launch.",
+    "duplicate": "This address is already on the list.",
+    "error": "Couldn't send that just now. Try again, or email us directly."
+  },
+  "contact": {
+    "heading": "Reach us directly",
+    "email": "hello@bysadeem.sa",
+    "phone": "+966 53 004 9008",
+    "whatsapp": "WhatsApp"
+  },
+  "language": {
+    "label": "Language",
+    "ar": "ع",
+    "en": "EN"
+  }
+}

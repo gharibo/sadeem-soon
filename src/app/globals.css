@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+/* ============================================================
+   سديم — توكنز الهوية
+   القيم مطابقة لتوكنز الموقع الأساسي:
+     --brand      #FF4F00  مرساة العلامة (primary-500)
+     --brand-deep #B33700  الدرجة الغامقة — تباين 6.06:1 على الكريمي
+     --cream      #F0EBE6  سطح الموقع (surface-cream)
+     --ink        #111827  النص الأساسي — تباين 14.98:1 على الكريمي
+
+   تنبيه تباين مقصود: #FF4F00 على الكريمي = 2.78:1 فقط ويرسب في AA،
+   لذلك لا يُستخدم للنص إطلاقًا — فقط للمساحات المملوءة والحدود والعلامة.
+   ============================================================ */
+@theme {
+  --color-brand: #FF4F00;
+  --color-brand-deep: #B33700;
+  --color-brand-tint: #FFE2D1;
+  --color-cream: #F0EBE6;
+  --color-ink: #111827;
+  --color-ink-soft: #5C6470;
+  --color-hairline: rgba(17, 24, 39, 0.14);
+
+  --font-display: "IBM Plex Sans Arabic", ui-sans-serif, system-ui, sans-serif;
+  --font-utility: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-display);
+  font-weight: 300;
+  /* العربية تحتاج فراغًا رأسيًا أكبر من اللاتينية:
+     صواعد ونوازل زائد النقاط فوق الحروف وتحتها */
+  line-height: 1.6;
+}
+
+/* حقل ضوئي خافت خلف كل شيء — يوحي بالسديم دون أن ينافس المحتوى */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(58% 46% at 22% 16%, rgba(255, 79, 0, 0.10) 0%, transparent 68%),
+    radial-gradient(52% 42% at 84% 82%, rgba(179, 55, 0, 0.08) 0%, transparent 70%);
+}
+
+/* ===== العنصر المميّز: أيقونة سديم كفتحة يطلّ منها السديم =====
+   أيقونة سديم في الهوية "تفريغ" — العصا ثقب لا تعبئة. نستثمر الخاصية
+   حرفيًا: المربّع يمتلئ بحقل لوني متحرك، والعصا تبقى فراغًا يظهر منه
+   لون الصفحة. و"سديم" اسمه أصلًا سحابة نجمية، فالصورة تشرح الاسم.
+   النقاط مأخوذة من public/logo-icon.svg بلا أي تعديل هندسي. */
+.aperture {
+  aspect-ratio: 1 / 1;
+  clip-path: polygon(94.99% 100.00%, 34.84% 39.86%, 29.38% 54.55%, 20.77% 51.35%, 25.25% 39.33%, 13.23% 43.79%, 10.02% 35.19%, 24.72% 29.74%, 13.64% 18.65%, 20.12% 12.16%, 31.22% 23.25%, 36.67% 8.55%, 45.27% 11.74%, 40.81% 23.76%, 52.83% 19.30%, 56.02% 27.90%, 41.33% 33.36%, 100.00% 92.04%, 100.00% 0.00%, 0.00% 0.00%, 0.00% 100.00%, 94.99% 100.00%);
+  background:
+    radial-gradient(60% 55% at 30% 28%, #FF9E6E 0%, transparent 62%),
+    radial-gradient(55% 50% at 74% 70%, #B33700 0%, transparent 66%),
+    radial-gradient(80% 80% at 50% 50%, #FF4F00 0%, #E04600 100%);
+  background-size: 220% 220%, 200% 200%, 100% 100%;
+  animation: drift 22s ease-in-out infinite alternate;
+}
+
+@keyframes drift {
+  0%   { background-position: 10% 20%, 80% 70%, 50% 50%; }
+  50%  { background-position: 60% 55%, 30% 30%, 50% 50%; }
+  100% { background-position: 25% 80%, 65% 20%, 50% 50%; }
+}
+
+/* تسطير مرسوم بوحدة em فيتناسب مع حجم الخط تلقائيًا */
+.accent-underline {
+  position: relative;
+  white-space: nowrap;
+}
+.accent-underline::after {
+  content: "";
+  position: absolute;
+  inset-inline: -0.04em;
+  bottom: -0.14em;
+  height: 0.055em;
+  background: var(--color-brand);
+  border-radius: 999px;
+}
+
+/* الحروف اللاتينية وحدها تحتمل التتبّع الواسع والحروف الكبيرة.
+   تطبيقهما على العربية يفصل وصلات الحروف فتتفكّك الكلمة. */
+.latin-caps {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: normal;
+  text-transform: none;
+}
+[dir="ltr"] .latin-caps {
+  font-family: var(--font-utility);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brand-deep);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aperture { animation: none; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; }
+}
